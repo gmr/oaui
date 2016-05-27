@@ -1,0 +1,38 @@
+{
+  "name": "swag",
+  "version": "0.0.1",
+  "description": "Swagger Documentation Viewer",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmr/swag"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "backbone": "^1.3.3",
+    "backbone-nested-models": "^2.0.2",
+    "bootstrap": "4.0.0-alpha.2",
+    "connect-livereload": "^0.5.4",
+    "font-awesome": "^4.6.3",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass-lint": "^0.2.0",
+    "handlebars": "^4.0.5",
+    "hbsfy": "^2.7.0",
+    "jit-grunt": "^0.10.0",
+    "jquery": "^2.2.4",
+    "lodash": "^4.13.1",
+    "time-grunt": "^1.3.0"
+  },
+  "dependencies": {}
+}

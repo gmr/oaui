@@ -1,0 +1,37 @@
+{{#if info}}
+  <h1>{{info.title}}</h1>
+  <div class="markdown">{{{info.description}}}</div>
+  <hr class="m-y-2">
+  <div class="container">
+    <dl class="dl-horizontal">
+      <dt class="col-sm-3">Base URL</dt>
+      <dd class="col-sm-9">{{basePath}}</dd>
+      {{#if info.version}}
+      <dt class="col-sm-3">Version</dt>
+      <dd class="col-sm-9">{{info.version}}</dd>
+      {{/if}}
+      {{#if externalDocs}}
+      <dt class="col-sm-3">{{externalDocs.description}}</dt>
+      <dd class="col-sm-9"><a href="{{externalDocs.url}}" target="_blank">{{externalDocs.url}}</a></dd>
+      {{/if}}
+      {{#if info.contact }}
+      <dt class="col-sm-3">Contact information</dt>
+      <dd class="col-sm-9">
+        <ul class="list-unstyled">
+          {{#if info.contact.name}}<li><var>{{info.contact.name}}</var></li>{{/if}}
+          {{#if info.contact.email}}<li><a href="mailto:{{info.contact.email}}">{{info.contact.email}}</a></li>{{/if}}
+          {{#if info.contact.url}}<li><a href="{{info.contact.url}}">{{info.contact.url}}</a></li>{{/if}}
+        </ul>
+      </dd>
+      {{/if}}
+      {{#if info.termsOfServiceUrl}}
+          <dt class="col-sm-3">Terms of Service</dt>
+          <dd class="col-sm-9"><a href="{{info.termsOfServiceUrl}}" target="_blank">{{info.termsOfServiceUrl}}</a></dd>
+      {{/if}}
+      {{#if info.license.name}}
+        <dt class="col-sm-3">License</dt>
+        <dd class="col-sm-9"><a href="{{info.license.url}}" target="_blank">{{info.license.name}}</a></dd>
+      {{/if}}
+    </dl>
+  </div>
+{{/if}}
