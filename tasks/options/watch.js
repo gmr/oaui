@@ -3,19 +3,16 @@
 var LIVERELOAD_PORT = process.env.LIVERELOAD_PORT || 35730;
 
 module.exports = {
-  app: {
-    options: {livereload: LIVERELOAD_PORT},
-    files: ['build/app.js'],
-    tasks: ['concat:app']
-  },
   index: {
     options: {livereload: LIVERELOAD_PORT},
     files: ['src/index.html'],
     tasks: ['copy:index']
   },
   source: {
+    options: {livereload: LIVERELOAD_PORT},
     files: ['src/js/*.js', 'src/js/**/*'],
-    tasks: ['browserify:app']
+    tasks: ['browserify:app',
+            'concat:app']
   },
   styles: {
     options: {livereload: LIVERELOAD_PORT},

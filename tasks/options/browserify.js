@@ -6,9 +6,9 @@ module.exports = {
       'build/app.js': ['src/js/main.js']
     },
     options: {
-      transform: [['hbsfy', {global: true}],
+      transform: [['hbsfy', {globals: true}],
                   ['babelify', {presets: ["es2015"]}]],
-      external: ['backbone', 'backbone-models']
+      external: ['backbone']
     }
   },
   vendor: {
@@ -16,8 +16,7 @@ module.exports = {
     dest: 'build/vendor.js',
     options: {
       alias: [
-        './node_modules/backbone/backbone.js:backbone',
-        './node_modules/backbone-nested-models/backbone-nested-models.js:backbone-models'
+        './node_modules/backbone/backbone.js:backbone'
       ]
     }
   }

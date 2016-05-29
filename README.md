@@ -1,2 +1,2 @@
-# swag
-Swagger Documentation Viewer
+# Oaui
+An OpenAPI Documentation Viewer

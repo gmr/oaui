@@ -11,8 +11,7 @@ exports.View = base.View.extend({
   },
 
   onChange: function() {
-    var info = this.model.get('info');
-    window.document.title = 'API Documentation: ' + info.get('title');
+    window.document.title = 'API Documentation: ' + this.model.get('title');
     this.render();
   }
 

@@ -1,11 +1,17 @@
 {{#if info}}
   <h1>{{info.title}}</h1>
-  <div class="markdown">{{{info.description}}}</div>
+  <div class="container">
+    {{#markdown}}{{{info.description}}}{{/markdown}}
+  </div>
   <hr class="m-y-2">
   <div class="container">
     <dl class="dl-horizontal">
       <dt class="col-sm-3">Base URL</dt>
-      <dd class="col-sm-9">{{basePath}}</dd>
+      <dd class="col-sm-9">
+        <ul class="list-unstyled">{{#each schemes}}
+          <li>{{.}}://{{../host}}{{../basePath}}</li>
+        {{/each}}</ul>
+      </dd>
       {{#if info.version}}
       <dt class="col-sm-3">Version</dt>
       <dd class="col-sm-9">{{info.version}}</dd>

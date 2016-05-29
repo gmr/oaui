@@ -1,10 +1,11 @@
 'use strict';
 
-var api = require('../views/api');
-var swagger = require('../models/swagger');
+var api_model = require('../models/api');
+var api_view = require('../views/api');
 
-exports.controller = function(url) {
-  var model = new swagger.Model({url: url});
-  this.layout = new api.View({el: this.el, model: model});
+exports.api = function(el, url) {
+  var model = new api_model.Model({url: url});
+  var layout = new api_view.View({el: el, model: model});
   model.fetch();
+  return layout;
 };

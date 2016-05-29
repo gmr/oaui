@@ -1,8 +1,9 @@
 'use strict';
 
-var index = require('../views/index');
+var view = require('../views/index');
 
-exports.controller = function() {
-  this.layout = new index.View({el: this.el});
-  this.layout.render()
+exports.index = function(el, config) {
+  var layout = new view.View({el: el, model: config});
+  layout.render();
+  return layout;
 };

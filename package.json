@@ -1,18 +1,18 @@
 {
-  "name": "swag",
+  "name": "oaui",
   "version": "0.0.1",
-  "description": "Swagger Documentation Viewer",
+  "description": "An OpenAPI Documentation Viewer",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gmr/swag"
+    "url": "https://github.com/gmr/oaui"
   },
   "devDependencies": {
     "babel-polyfill": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
     "backbone": "^1.3.3",
-    "backbone-nested-models": "^2.0.2",
+    "backbone-nested": "^2.0.4",
     "bootstrap": "4.0.0-alpha.2",
     "connect-livereload": "^0.5.4",
     "font-awesome": "^4.6.3",
@@ -31,7 +31,7 @@
     "hbsfy": "^2.7.0",
     "jit-grunt": "^0.10.0",
     "jquery": "^2.2.4",
-    "lodash": "^4.13.1",
+    "tether": "^1.3.2",
     "time-grunt": "^1.3.0"
   },
   "dependencies": {}

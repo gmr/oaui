@@ -1,3 +1,13 @@
 header {
-  margin: .25em 0 .5em 0;
+  margin: .25em 0 1em 0;
+
+  nav {
+    .navbar-brand {
+      margin-right: 1.5em;
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: 0;
 }
