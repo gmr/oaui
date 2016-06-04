@@ -1,11 +1,11 @@
+<script type="application/javascript">var http_methods=['get', 'post', 'put', 'delete', 'head', 'options'];</script>
 {{#if info}}
   <h1>{{info.title}}</h1>
   <div class="container">
     {{#markdown}}{{{info.description}}}{{/markdown}}
   </div>
-  <hr class="m-y-2">
-  <div class="container">
-    <dl class="dl-horizontal">
+  <div class="jumbotron jumbotron-fluid">
+    <dl class="dl-horizontal content">
       <dt class="col-sm-3">Base URL</dt>
       <dd class="col-sm-9">
         <ul class="list-unstyled">{{#each schemes}}
@@ -13,26 +13,29 @@
         {{/each}}</ul>
       </dd>
       {{#if info.version}}
-      <dt class="col-sm-3">Version</dt>
-      <dd class="col-sm-9">{{info.version}}</dd>
+        <dt class="col-sm-3">Version</dt>
+        <dd class="col-sm-9">{{info.version}}</dd>
       {{/if}}
       {{#if externalDocs}}
-      <dt class="col-sm-3">{{externalDocs.description}}</dt>
-      <dd class="col-sm-9"><a href="{{externalDocs.url}}" target="_blank">{{externalDocs.url}}</a></dd>
+        <dt class="col-sm-3">{{externalDocs.description}}</dt>
+        <dd class="col-sm-9"><a href="{{externalDocs.url}}" target="_blank">{{externalDocs.url}}</a></dd>
       {{/if}}
       {{#if info.contact }}
-      <dt class="col-sm-3">Contact information</dt>
-      <dd class="col-sm-9">
-        <ul class="list-unstyled">
-          {{#if info.contact.name}}<li><var>{{info.contact.name}}</var></li>{{/if}}
-          {{#if info.contact.email}}<li><a href="mailto:{{info.contact.email}}">{{info.contact.email}}</a></li>{{/if}}
-          {{#if info.contact.url}}<li><a href="{{info.contact.url}}">{{info.contact.url}}</a></li>{{/if}}
-        </ul>
-      </dd>
+        <dt class="col-sm-3">Contact information</dt>
+        <dd class="col-sm-9">
+          <ul class="list-unstyled">
+            {{#if info.contact.name}}
+              <li><var>{{info.contact.name}}</var></li>{{/if}}
+            {{#if info.contact.email}}
+              <li><a href="mailto:{{info.contact.email}}">{{info.contact.email}}</a></li>{{/if}}
+            {{#if info.contact.url}}
+              <li><a href="{{info.contact.url}}">{{info.contact.url}}</a></li>{{/if}}
+          </ul>
+        </dd>
       {{/if}}
       {{#if info.termsOfServiceUrl}}
-          <dt class="col-sm-3">Terms of Service</dt>
-          <dd class="col-sm-9"><a href="{{info.termsOfServiceUrl}}" target="_blank">{{info.termsOfServiceUrl}}</a></dd>
+        <dt class="col-sm-3">Terms of Service</dt>
+        <dd class="col-sm-9"><a href="{{info.termsOfServiceUrl}}" target="_blank">{{info.termsOfServiceUrl}}</a></dd>
       {{/if}}
       {{#if info.license.name}}
         <dt class="col-sm-3">License</dt>
@@ -41,3 +44,62 @@
     </dl>
   </div>
 {{/if}}
+<h2>API Endpoints</h2>
+<div class="container endpoints">
+{{#each paths}}
+  <div class="panel panel-default">
+    <div class="panel-header">
+      <div class="pull-right methods">
+        {{#each .}}{{#inArray ../../attributes.http_methods @key}}
+          <span class="label label-big label-{{@key}}">{{capitalize @key}}</span>
+        {{/inArray}}{{/each}}
+      </div>
+      <h4 class="panel-title">
+        <code>{{@key}}</code>
+      </h4>
+    </div>
+    <div class="panel-body">
+      {{#each this}}{{#inArray ../../attributes.http_methods @key}}
+      <div class="card">
+        <div class="card-header card-{{@key}}">
+          <h5>{{uppercase @key}}</h5>
+          <p class="summary lead">{{summary}}</p>
+        </div>
+        <div class="card-body">
+          <p>{{description}}</p>
+          {{#if consumes}}
+          <h5>Request Headers</h5>
+          <dl class="dl-horizontal content">
+            <dt class="col-sm-2">Accept</dt>
+            <dd class="col-sm-9"><ul class="list-unstyled">{{#each consumes}}<li><code>{{.}}</code></li>{{/each}}</ul></dd>
+          </dl>
+          {{/if}}
+
+          <h5>Response Types</h5>
+          <table class="table table-sm table-hover">
+            <thead>
+              <tr>
+                <th class="text-center w10em">Status Code</th>
+                <th>Description</th>
+                <th class="text-center w10em">Headers</th>
+                <th class="text-center w10em">Response</th>
+              </tr>
+            </thead>
+            <tbody>
+            {{#each responses}}
+              <tr>
+                <th scope="row" class="text-center w10em">{{@key}}</th>
+                <td>{{description}}</td>
+                <td class="text-center w10em"><i class="fa fa-table"></i> View</td>
+                <td class="text-center w10em"><i class="fa fa-book"></i> Model</td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/inArray}}{{/each}}
+    </div>
+  </div>
+{{/each}}
+</div>

@@ -8,6 +8,185 @@ header {
   }
 }
 
-.nav-tabs {
-  border-bottom: 0;
+.no-top-border > thead > tr > th {
+  border-top: 0;
+}
+
+.dl-horizontal {
+  margin: .5em 0;
+}
+
+.jumbotron {
+  margin: 1em .5em 1.5em .5em;
+  padding: .5em 1em 0 1em;
+  background: $gray-lightest;
+  @include border-radius($card-border-radius-inner $card-border-radius-inner $card-border-radius-inner $card-border-radius-inner);
+}
+
+.endpoints {
+
+  .panel {
+    margin: 1.5em 0 0 0;
+    padding: .25em .25em 0 .25em;
+    border: 1px solid $gray-lighter;
+    @include border-radius($card-border-radius-inner $card-border-radius-inner $card-border-radius-inner $card-border-radius-inner);
+  }
+
+  .panel-header {
+    padding: .75em .5em .25em .5em;
+    background: $gray-lightest;
+    border: 1px solid $gray-lighter;
+    @include border-radius($card-border-radius-inner $card-border-radius-inner $card-border-radius-inner $card-border-radius-inner);
+    code {
+      color: $gray-dark;
+      font-weight: bold;
+    }
+    .methods {
+      display: none;
+    }
+  }
+
+  .panel-body {
+    padding: .25em 0 0 0;
+  }
+
+  padding: 0 .5em 0 .5em;
+
+  code {
+    color: $gray-dark;
+  }
+
+}
+
+.label-big {
+  font-size: 1.05em;
+}
+
+.label-get {
+  @extend .label-primary;
+}
+
+.label-delete {
+  @extend .label-danger;
+}
+
+.label-put {
+  @extend .label-warning;
+}
+
+.label-post {
+  @extend .label-success;
+}
+
+.label-head {
+  @extend .label-default;
+}
+
+.label-options {
+  @extend .label-default;
+}
+
+.card {
+  border-color: $gray-lighter;
+  border-top-color: white;
+  margin: 0 0 .25em 0;
+}
+
+.card-get {
+  background-color: rgba(35,146,247,.1);
+  h4,h5 {
+    background-color: $brand-primary;
+  }
+}
+
+.card-post {
+  background-color: rgba(19,194,15,.1);
+  h4,h5 {
+    background-color: $brand-success;
+  }
+}
+
+.card-put {
+  background-color: rgba(255,144,0,.1);
+  h4,h5 {
+    background-color: $brand-warning;
+  }
+}
+
+.card-delete {
+  background-color: rgba(227,0,18,.1);
+  h4,h5 {
+    background-color: $brand-danger;
+  }
+}
+
+.card-header {
+  padding: 0;
+  border-color: $gray-lighter;
+  border-bottom-color: white;
+  h4 {
+    color: #fff;
+    display: inline-block;
+    font-family: $font-family-monospace;
+    margin: 0;
+    padding: $card-spacer-y $card-spacer-x;
+    @include border-radius($card-border-radius-inner 0 0 0);
+    .deprecated {
+      color: #fff;
+    }
+  }
+  h5 {
+    color: #fff;
+    display: inline-block;
+    font-family: $font-family-monospace;
+    margin: 0;
+    padding: $card-spacer-y $card-spacer-x;
+    @include border-radius($card-border-radius-inner 0 0 0);
+    .deprecated {
+      color: #fff;
+    }
+    width: 6em;
+    text-align: center;
+  }
+  a {
+    color: #fff;
+  }
+  .summary {
+    float: right;
+    color: $gray-dark;
+    font-size: 1.05em;
+    margin: .60em 1em 0 0;
+  }
+}
+
+.card-body {
+  padding: 1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@for $i from 200 through 226 {
+  .status-#{$i} { color: $brand-success; }
+}
+
+@for $i from 400 through 499 {
+  .status-#{$i} { color: $brand-warning; }
+}
+
+@for $i from 500 through 511 {
+  .status-#{$i} { color: $brand-danger; }
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.w10em {
+  width: 10em;
+}
+
+.w12em {
+  width: 12em;
 }
