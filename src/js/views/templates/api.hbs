@@ -4,6 +4,7 @@
   <div class="container">
     {{#markdown}}{{{info.description}}}{{/markdown}}
   </div>
+  <i class="fa fa-globe jumbotron-image" aria-hidden="true"></i>
   <div class="jumbotron jumbotron-fluid">
     <dl class="dl-horizontal content">
       <dt class="col-sm-3">Base URL</dt>
@@ -49,16 +50,19 @@
 {{#each paths}}
   <div class="panel panel-default">
     <div class="panel-header">
-      <div class="pull-right methods">
-        {{#each .}}{{#inArray ../../attributes.http_methods @key}}
-          <span class="label label-big label-{{@key}}">{{capitalize @key}}</span>
-        {{/inArray}}{{/each}}
-      </div>
-      <h4 class="panel-title">
-        <code>{{@key}}</code>
-      </h4>
+      <a data-target="#endpoint{{@index}}-methods" class="endpoint">
+        <div class="pull-right methods">
+          {{#each .}}{{#inArray ../../attributes.http_methods @key}}
+            <span class="label label-big label-{{@key}}">{{uppercase @key}}</span>
+          {{/inArray}}{{/each}}
+        </div>
+        <i class="fa fa-minus-square endpoint-close fa-2x pull-right" aria-hidden="true" style="display: none;"></i>
+        <h4 class="panel-title">
+          <code>{{@key}}</code>
+        </h4>
+      </a>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" id="endpoint{{@index}}-methods">
       {{#each this}}{{#inArray ../../attributes.http_methods @key}}
       <div class="card">
         <div class="card-header card-{{@key}}">
